@@ -1,0 +1,422 @@
+<!doctype html> {% load static %}
+<html lang="en">
+
+    <head>
+        <title>Natalie's Second Chance</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <!--  Fonts and icons  -->
+        <!--     Fonts and icons     -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons|"
+        />
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+            crossorigin="anonymous">
+
+        <!-- Material Kit CSS -->
+        <link href="{% static 'css/material-kit.min.css' %}" rel="stylesheet" />
+
+        <!-- Index CSS -->
+        <link rel="stylesheet" href="{% static 'css/index.min.css' %}">
+
+    </head>
+
+    <body>
+        <nav class="navbar hello navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="100">
+            <div class="container">
+                <div class="navbar-translate">
+                    <a class="navbar-brand" href="#">
+                        Natalie's Second Chance
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" rel="tooltip" data-placement="bottom" data-original-title="Adopt a new friend">
+                                <i class="fas fa-paw fa-2x"></i> Adoption
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#outreach" class="nav-link" rel="tooltip" data-placement="bottom" data-original-title="How we're reaching out">
+                                <i class="fas fa-hand-holding-heart fa-2x"></i> Outreach
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" rel="tooltip" data-placement="bottom" data-original-title="Upcoming Events">
+                                <i class="fas fa-bullhorn fa-2x"></i> Events
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" rel="tooltip" data-placement="bottom" data-original-title="Contact us">
+                                <i class="fas fa-tty fa-2x"></i> Contact
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/NataliesSecondChance/"
+                                target="_blank" data-original-title="Reach out on Facebook">
+                                <i class="fab fa-facebook fa-2x"></i>
+                                <div class="ripple-container"></div>
+                            </a>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="page-header header-filter" data-parallax="true">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <div class="brand text-center">
+                            <h1 class="title" id="title">Give a Dog a Home</h1>
+                            <!-- Button trigger modal >> modal outside of body -->
+                            <button type="button" class="btn btn-success btn-round" data-toggle="modal" data-target="#donationModal">
+                                Donate
+                            </button>
+                            <a href="#" class="btn d-inline btn-round btn-outline header-btn btn-success">Volunteer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donation Modal-->
+        <div class="modal fade" id="donationModal" tabindex="-1" role="dialog" aria-labelledby="donationModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header mb-0">
+                        <h4 class="title mb-0" id="donationModalLabel">
+                            Choose a donation amount
+                            <p style="line-height:1.2;" class="mt-1"> Your donation today will help find a home for one of our pups</p>
+                            <h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                    </div>
+                    <form id="donationForm" method="POST" class="form-group has-success pt-0" action="">
+                        {% csrf_token %}
+                    <div class="modal-body pt-0">
+                            <div class="button-group-toggle" data-toggle="buttons">
+                                <style>
+                                    .donation-buttons {
+                                        display: grid;
+                                        grid-template-columns: repeat(2, 1fr);
+                                    }
+                                </style>
+                                <div class="donation-buttons">
+                                    <div class="btn btn-success donation-button btn-round text-lg">
+                                        <input type="radio" class="donation-option" name="donation-option" value="500" checked> $5.00
+                                    </div>
+                                    <div class="btn btn-outline-success donation-button btn-round text-lg">
+                                        <input type="radio" class="donation-option" name="donation-option" value="1000"  > $10.00
+                                    </div>
+                                    <div class="btn  btn-outline-success donation-button btn-round text-lg">
+                                        <input type="radio" class="donation-option" name="donation-option"  value="2000" > $20.00
+                                    </div>
+    
+                                
+                                    <div class="btn  btn-outline-success donation-button btn-round text-lg">
+                                        <input type="radio" class="donation-option" name="donation-option"  value="2500" > $25.00
+                                    </div>
+                                    <div class="btn  btn-outline-success donation-button btn-round text-lg">
+                                        <input type="radio" class="donation-option" name="donation-option"  value="5000" > $50.00
+                                    </div>
+                                    <div class="btn  btn-outline-success donation-button btn-round text-lg"">
+                                        <input type="radio" class="donation-option" name="donation-option"  value="10000" > $100.00
+                                    </div>
+                                </div>                                      
+                            </div>
+                       
+                    </div>
+
+                    <div class="modal-footer">
+                                <label class="control-label" for="customDonation">
+                                    Custom Donation
+                                </label>
+                                <input id="customDonation" type="text" class="form-control has-success" name="custom-donation-option">
+                                    <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="stripeButton"
+                                    data-key="{{ key }}"
+                                    data-amount=""
+                                    data-name="Demo Site"
+                                    data-description="Example charge"
+                                    data-image="{% static 'img/dog.png' %}"
+                                    data-locale="auto">
+                                    </script>
+                            </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="main main-raised">
+            <div class="container">
+
+                <!--Adoaptables-->
+                <div id="adoptables" class="section pt-4">
+                    <h2 class="title mt-0 text-center">Adoptable Dogs</h2>
+                    <div class="row justify-content-around">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <h3 class="card-header adopt-header title">Remy</h3>
+                                <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                                <div class="card-body">
+                                    <div class="card-title">Breed</div>
+                                    <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum
+                                        recusandae nostrum hic quos, voluptatem quod adipisci.</div>
+                                    <a href="" class="btn-sm btn-success float-right">More info</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <h3 class="card-header adopt-header title">Remy</h3>
+                                <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                                <div class="card-body">
+                                    <div class="card-title">Breed</div>
+                                    <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum
+                                        recusandae nostrum hic quos, voluptatem quod adipisci.</div>
+                                    <a href="" class="btn-sm btn-success float-right">More info</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <h3 class="card-header adopt-header title">Remy</h3>
+                                <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                                <div class="card-body">
+                                    <div class="card-title">Breed</div>
+                                    <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum
+                                        recusandae nostrum hic quos, voluptatem quod adipisci.</div>
+                                    <a href="" class="btn-sm btn-success float-right">More info</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <h3 class="card-header adopt-header title">Remy</h3>
+                                <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                                <div class="card-body">
+                                    <div class="card-title">Breed</div>
+                                    <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum
+                                        recusandae nostrum hic quos, voluptatem quod adipisci.</div>
+                                    <a href="" class="btn-sm btn-success float-right">More info</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <h3 class="card-header adopt-header title">Remy</h3>
+                                <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                                <div class="card-body">
+                                    <div class="card-title">Breed</div>
+                                    <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum
+                                        recusandae nostrum hic quos, voluptatem quod adipisci.</div>
+                                    <a href="" class="btn-sm btn-success float-right">More info</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card">
+                                <h3 class="card-header adopt-header title">Remy</h3>
+                                <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                                <div class="card-body">
+                                    <div class="card-title">Breed</div>
+                                    <div class="card-subtitle mb-2 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum
+                                        recusandae nostrum hic quos, voluptatem quod adipisci.</div>
+                                    <div class="row">
+                                        <div class="col-md-6 mx-auto">
+                                            <a href="" class="btn-sm btn-success float-right">More info</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a href="#" class="btn btn-round mx-auto">All of our pets...</a>
+                    </div>
+                </div>
+                <!--Outreach -->
+                <div id="outreach" class="section">
+
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <h2 class="title text-center"> Community Outreach</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 outreach-item">
+                            <div class="row">
+                                <div class="col mx-auto">
+                                    <img class="img-fluid outreach-img" src="{% static 'img/feeding-dog.jpg' %}" alt="">
+                                </div>
+                            </div>
+                            <h4 class="title mb-2">Community Food Bank</h4>
+                            <p class="text-lg">
+                                Natalie's Second Chance offers a food bank for pet owners in the community that need assistance feeding their pets. Dog food
+                                and sometimes cat food, is available through us at no charge and no requirements for this
+                                service.
+                            </p>
+                            <p class="text-lg"> We encourage anyone needing assistance in feeding their pets to come pick up food during our
+                                open adoption hours. Donations of any brand of food (wet or dry) for the food bank are accepted
+                                and can be dropped off during our open adoption hours. If you have a food donation to give,
+                                but are unable to bring it to us, please contact us to arrange pick up. For the food bank,
+                                we also accept open bags of food and treats.
+                            </p>
+                        </div>
+                        <div class="col-lg-6 outreach-item">
+                            <div class="row">
+                                <div class="col mx-auto">
+                                    <img class=" img-fluid outreach-img" src="{% static 'img/dog-obedience.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="title mb-2">Dog obedience training</h4>
+                                    <p class="text-lg">
+                                        If you have a dog that just isn't listening or if you are a new pet owner and don't know what to do, Scott Stone is here
+                                        to help you. Scott is now offering obedience training at our shelter. He has had
+                                        extensive training and has worked with a variety of dogs. Follow him on facebook
+                                        to get all of the current details on classes and services.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 mx-auto">
+                                    <a href="https://www.facebook.com/IcareK9ObedienceTraining" target="_blank" class="btn btn-info text-lg facebook">
+                                        <p>
+                                            <i class="fab fa-facebook fa-3x"></i> Reach out on facebook
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+        <footer class="footer footer-default">
+            <div class="container">
+                <nav class="float-left">
+                    <small class="d-inline">
+                        Icons made by
+                        <a href="http://www.freepik.com" title="Freepik">Freepik</a> from
+                        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
+                        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+                    </small>
+                </nav>
+                <div class="copyright float-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>, Donated and made with
+                    <i class="material-icons">favorite</i> by
+                    <a href="https://www.abepena.com" target="blank">Abe Pena</a>
+                </div>
+            </div>
+        </footer>
+
+        {% if payment_success %}
+        <div id="paymentSuccess" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-dark">Success!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-dark">
+                        <p>Congratulate yourself on being awesome! Thank you so much for your donation.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="closeModal" class="btn btn-success btn-round" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <!--   Core JS Files   -->
+        <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/core/bootstrap-material-design.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/plugins/moment.min.js' %}"></script>
+        <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+        <script src="{% static 'js/plugins/bootstrap-datetimepicker.js' %}" type="text/javascript"></script>
+        <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+        <script src="{% static 'js/plugins/nouislider.min.js' %}" type="text/javascript"></script>
+        <!--  Google Maps Plugin  -->
+        {% comment %}
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>--> {% endcomment %}
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script async defer src="https://buttons.github.io/buttons.js' %}"></script>
+        <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+        <script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/index.js' %}" type="text/javascript"></script>
+        <!-- Modal -->
+        <script>
+
+
+
+            // Trigger color change on different Donation choices
+            function clearDonation(){
+                var customDonation = document.getElementById('customDonation')
+                customDonation.value = '';                 
+            }
+
+            function changeStripeAmount(amount) {
+                stripeButton.setAttribute('data-amount', amount)
+               
+            }
+
+            // Change Donation Button Color and change stripe payment on button click
+            $('.donation-button').on('click',function () {
+                //Remove custom donation value if any
+                clearDonation();
+                
+                //get the amount that this button represents and change the stripe amount
+                amount = $('input', this).val();
+                changeStripeAmount(amount)
+                
+                //Change bootstrap classes for styling
+                $('.donation-button').not(this).removeClass('btn-success').addClass('btn-outline-success');
+                $(this).removeClass('btn-outline-success').addClass('btn-success');
+            });
+
+
+            // Clear Button Choice onkeying into the custom donation field
+            $('#customDonation').keyup(function () {
+                if ($(this).val.length != 0) {
+                    $('.donation-option').prop('checked', false);
+                    $('.donation-button').removeClass('btn-success, active').addClass('btn-outline-success');
+                }
+            });
+        </script>
+
+    </body>
+
+</html>
