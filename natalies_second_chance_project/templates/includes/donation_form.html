@@ -1,0 +1,54 @@
+{% load static %}
+<form id="donationForm" method="POST" class="form-group has-success pt-0" action="{% url 'home' %}">
+        {% csrf_token %}
+    <div class="modal-body pt-0">
+            <div class="button-group-toggle" data-toggle="buttons">
+                <style>
+                    .donation-buttons {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                </style>
+                <div class="donation-buttons">
+                    <div class="btn btn-success donation-button btn-round text-lg">
+                        <input type="radio" class="donation-option" name="donation-option" value="500" checked> $5.00
+                    </div>
+                    <div class="btn btn-outline-success donation-button btn-round text-lg">
+                        <input type="radio" class="donation-option" name="donation-option" value="1000"  > $10.00
+                    </div>
+                    <div class="btn  btn-outline-success donation-button btn-round text-lg">
+                        <input type="radio" class="donation-option" name="donation-option"  value="2000" > $20.00
+                    </div>
+
+                
+                    <div class="btn  btn-outline-success donation-button btn-round text-lg">
+                        <input type="radio" class="donation-option" name="donation-option"  value="2500" > $25.00
+                    </div>
+                    <div class="btn  btn-outline-success donation-button btn-round text-lg">
+                        <input type="radio" class="donation-option" name="donation-option"  value="5000" > $50.00
+                    </div>
+                    <div class="btn  btn-outline-success donation-button btn-round text-lg"">
+                        <input type="radio" class="donation-option" name="donation-option"  value="10000" > $100.00
+                    </div>
+                </div>                                      
+            </div>
+       
+    </div>
+
+    <div class="modal-footer">
+        <label class="control-label" for="customDonation">
+            Custom Donation
+        </label>
+        <input id="customDonation" type="text" class="form-control has-success" name="custom-donation-option">
+        <!-- STRIPE BUTTON-->
+        <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="stripeButton"
+        data-key="{{ key }}"
+        data-amount=""
+        data-name="Natalie's Second Chance"
+        data-description="Donation"
+        data-image="{% static 'img/dog.png' %}"
+        data-locale="auto">
+        </script>
+    </div>
+</form>

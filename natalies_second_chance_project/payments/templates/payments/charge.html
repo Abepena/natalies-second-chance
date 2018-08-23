@@ -1,1 +1,8 @@
-<h2>Thanks you paid <strong>$5.00</strong> </h2>
+
+{% if payment == "success" %}
+<h2>Thank you, you paid <strong>${{ amount|floatformat:2 }}</strong> </h2>
+{% elif payment == "declined" %}
+Declined
+{% elif payment == "request_error" %}
+Doing Nothing
+{% endif %}

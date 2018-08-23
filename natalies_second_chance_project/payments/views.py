@@ -13,40 +13,62 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 class HomePageView(TemplateView):
     template_name = 'index.html'
-    
+
     def post(self, request, **kwargs):
         context = self.get_context_data()
         post_data = self.request.POST
         token = self.request.POST.get('stripeToken', '')
-        for key, value in post_data.items():
-            print (f"{key}: {value}")
+
+        # Check for custom donation
         if post_data.get('custom-donation-option'):
             amount = float(post_data.get('custom-donation-option')) *100 #convert donation to cents
         else:
-            amount = post_data.get('donation-option', 500)
+            amount = post_data.get('donation-option', 500) #Defaults to $5.00 if the donation amount never changed
+        
         try:
             # Create the stripe charge
             charge = stripe.Charge.create(
-                amount=int(amount),
+                amount=int(amount), #convert to integer of cents in USD
                 currency='usd',
                 description='Donation',
                 source=token
                 
             )
-            context["valid_payment"] = 'success'
+            context["amount"] = int(amount) / 100 # back to float for context
+            context["payment"] = 'success'
+            context["payment_header"] = 'Success!'
+            context["payment_message"] = "Congratulate yourself on being awesome!<br>We appreciate your generosity."
 
-        except (stripe.error.CardError, stripe.error.InvalidRequestError) as e:
-            context["valid_payment"] = 'error'
 
-        return super().render_to_response(context)
-    
+
+        except stripe.error.CardError:
+            context["payment"] = 'declined'
+            context["payment_header"] = 'Payment Method Declined.'
+            context["payment_message"] = "There was an error in proccessing your card"
+            
+        
+        except stripe.error.InvalidRequestError:
+            """
+            If a user refreshes the page after payment confirmation the stripeToken
+            will be invalid and give an Invalid Request Error, this handles that exception
+            gracefully without causing any issue for the user
+            """
+            pass
+        
+        #Any general errors not on stripe's end
+        except:
+            context["payment"] = 'error'
+            context["payment_header"] = 'Error.'
+            context["payment_message"] = "There was an error in processing your donation."
+
+               
+        return render(request, 'index.html', context)
+   
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['key'] = settings.STRIPE_PUBLISHABLE_KEY
         return context
 
-class ChargeView(TemplateView):
-    template_name = 'payments/charge.html'
   
   
     # if request.method == "POST":

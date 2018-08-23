@@ -106,58 +106,8 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                     </div>
-                    <form id="donationForm" method="POST" class="form-group has-success pt-0" action="">
-                        {% csrf_token %}
-                    <div class="modal-body pt-0">
-                            <div class="button-group-toggle" data-toggle="buttons">
-                                <style>
-                                    .donation-buttons {
-                                        display: grid;
-                                        grid-template-columns: repeat(2, 1fr);
-                                    }
-                                </style>
-                                <div class="donation-buttons">
-                                    <div class="btn btn-success donation-button btn-round text-lg">
-                                        <input type="radio" class="donation-option" name="donation-option" value="500" checked> $5.00
-                                    </div>
-                                    <div class="btn btn-outline-success donation-button btn-round text-lg">
-                                        <input type="radio" class="donation-option" name="donation-option" value="1000"  > $10.00
-                                    </div>
-                                    <div class="btn  btn-outline-success donation-button btn-round text-lg">
-                                        <input type="radio" class="donation-option" name="donation-option"  value="2000" > $20.00
-                                    </div>
-    
-                                
-                                    <div class="btn  btn-outline-success donation-button btn-round text-lg">
-                                        <input type="radio" class="donation-option" name="donation-option"  value="2500" > $25.00
-                                    </div>
-                                    <div class="btn  btn-outline-success donation-button btn-round text-lg">
-                                        <input type="radio" class="donation-option" name="donation-option"  value="5000" > $50.00
-                                    </div>
-                                    <div class="btn  btn-outline-success donation-button btn-round text-lg"">
-                                        <input type="radio" class="donation-option" name="donation-option"  value="10000" > $100.00
-                                    </div>
-                                </div>                                      
-                            </div>
-                       
-                    </div>
+                    {% include "includes/donation_form.html" %}
 
-                    <div class="modal-footer">
-                                <label class="control-label" for="customDonation">
-                                    Custom Donation
-                                </label>
-                                <input id="customDonation" type="text" class="form-control has-success" name="custom-donation-option">
-                                    <script
-                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="stripeButton"
-                                    data-key="{{ key }}"
-                                    data-amount=""
-                                    data-name="Demo Site"
-                                    data-description="Example charge"
-                                    data-image="{% static 'img/dog.png' %}"
-                                    data-locale="auto">
-                                    </script>
-                            </div>
-                </form>
                 </div>
             </div>
         </div>
@@ -340,26 +290,10 @@
             </div>
         </footer>
 
-        {% if payment_success %}
-        <div id="paymentSuccess" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-dark">Success!</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body text-dark">
-                        <p>Congratulate yourself on being awesome! Thank you so much for your donation.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="closeModal" class="btn btn-success btn-round" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% if payment %}
+        {% include "includes/payment_modal.html" %}
         {% endif %}
+
         <!--   Core JS Files   -->
         <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
@@ -373,49 +307,12 @@
         {% comment %}
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>--> {% endcomment %}
         <!-- Place this tag in your head or just before your close body tag. -->
-        <script async defer src="https://buttons.github.io/buttons.js' %}"></script>
+        <!-- <script async defer src="https://buttons.github.io/buttons.js' %}"></script> -->
         <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
         <script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/index.js' %}" type="text/javascript"></script>
-        <!-- Modal -->
-        <script>
-
-
-
-            // Trigger color change on different Donation choices
-            function clearDonation(){
-                var customDonation = document.getElementById('customDonation')
-                customDonation.value = '';                 
-            }
-
-            function changeStripeAmount(amount) {
-                stripeButton.setAttribute('data-amount', amount)
-               
-            }
-
-            // Change Donation Button Color and change stripe payment on button click
-            $('.donation-button').on('click',function () {
-                //Remove custom donation value if any
-                clearDonation();
-                
-                //get the amount that this button represents and change the stripe amount
-                amount = $('input', this).val();
-                changeStripeAmount(amount)
-                
-                //Change bootstrap classes for styling
-                $('.donation-button').not(this).removeClass('btn-success').addClass('btn-outline-success');
-                $(this).removeClass('btn-outline-success').addClass('btn-success');
-            });
-
-
-            // Clear Button Choice onkeying into the custom donation field
-            $('#customDonation').keyup(function () {
-                if ($(this).val.length != 0) {
-                    $('.donation-option').prop('checked', false);
-                    $('.donation-button').removeClass('btn-success, active').addClass('btn-outline-success');
-                }
-            });
-        </script>
+        <!-- Donation Modal JS on donate  button click -->
+        <script src="{% static 'js/donation_modal.js' %}"></script>
 
     </body>
 
