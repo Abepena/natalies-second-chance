@@ -11,7 +11,7 @@
   - Django (python)
   - HTML5 / CSS3
   - Bootstrap
-  - some Javascript / Jquery for customizing bootstap
+  - some Javascript / Jquery for customizing bootstrap
   
 Current Progress:
 
