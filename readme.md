@@ -6,6 +6,6 @@
 
 - Technology used in this project include:
   - Django (python)
-  - HTML/CSS
+  - HTML5 / CSS3
   - Bootstrap
   - some Javascript / Jquery for customizing bootstap
