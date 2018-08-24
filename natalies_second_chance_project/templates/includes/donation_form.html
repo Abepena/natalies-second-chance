@@ -11,24 +11,24 @@
                 </style>
                 <div class="donation-buttons">
                     <div class="btn btn-success donation-button btn-round text-lg">
-                        <input type="radio" class="donation-option" name="donation-option" value="500" checked> $5.00
+                        <input type="radio" class="donation-option" name="donation-option" hidden value="500" checked> $5.00
                     </div>
                     <div class="btn btn-outline-success donation-button btn-round text-lg">
-                        <input type="radio" class="donation-option" name="donation-option" value="1000"  > $10.00
+                        <input type="radio" class="donation-option" name="donation-option" hidden value="1000"  > $10.00
                     </div>
                     <div class="btn  btn-outline-success donation-button btn-round text-lg">
-                        <input type="radio" class="donation-option" name="donation-option"  value="2000" > $20.00
+                        <input type="radio" class="donation-option" name="donation-option"  hidden value="2000" > $20.00
                     </div>
 
                 
                     <div class="btn  btn-outline-success donation-button btn-round text-lg">
-                        <input type="radio" class="donation-option" name="donation-option"  value="2500" > $25.00
+                        <input type="radio" class="donation-option" name="donation-option"  hidden value="2500" > $25.00
                     </div>
                     <div class="btn  btn-outline-success donation-button btn-round text-lg">
-                        <input type="radio" class="donation-option" name="donation-option"  value="5000" > $50.00
+                        <input type="radio" class="donation-option" name="donation-option"  hidden value="5000" > $50.00
                     </div>
                     <div class="btn  btn-outline-success donation-button btn-round text-lg"">
-                        <input type="radio" class="donation-option" name="donation-option"  value="10000" > $100.00
+                        <input type="radio" class="donation-option" name="donation-option"  hidden value="10000" > $100.00
                     </div>
                 </div>                                      
             </div>
@@ -39,7 +39,7 @@
         <label class="control-label" for="customDonation">
             Custom Donation
         </label>
-        <input id="customDonation" type="text" class="form-control has-success" name="custom-donation-option">
+        <input id="customDonation" type="text" class="form-control has-success mr-4" name="custom-donation-option">
         <!-- STRIPE BUTTON-->
         <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="stripeButton"

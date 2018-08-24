@@ -25,7 +25,7 @@
     </head>
 
     <body>
-        <nav class="navbar hello navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="100">
+        <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="100">
             <div class="container">
                 <div class="navbar-translate">
                     <a class="navbar-brand" href="#">
@@ -43,22 +43,22 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link" rel="tooltip" data-placement="bottom" data-original-title="Adopt a new friend">
+                            <a href="#adoptables" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Adopt a new friend">
                                 <i class="fas fa-paw fa-2x"></i> Adoption
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#outreach" class="nav-link" rel="tooltip" data-placement="bottom" data-original-title="How we're reaching out">
+                            <a href="#outreach" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="How we're reaching out">
                                 <i class="fas fa-hand-holding-heart fa-2x"></i> Outreach
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" rel="tooltip" data-placement="bottom" data-original-title="Upcoming Events">
+                            <a href="#" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Upcoming Events">
                                 <i class="fas fa-bullhorn fa-2x"></i> Events
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" rel="tooltip" data-placement="bottom" data-original-title="Contact us">
+                            <a href="#" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Contact us">
                                 <i class="fas fa-tty fa-2x"></i> Contact
                             </a>
                         </li>
@@ -290,9 +290,7 @@
             </div>
         </footer>
 
-        {% if payment %}
-        {% include "includes/payment_modal.html" %}
-        {% endif %}
+
 
         <!--   Core JS Files   -->
         <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
@@ -313,7 +311,10 @@
         <script src="{% static 'js/index.js' %}" type="text/javascript"></script>
         <!-- Donation Modal JS on donate  button click -->
         <script src="{% static 'js/donation_modal.js' %}"></script>
-
+        {% if payment %}
+        {% include "includes/payment_modal.html" %}
+        {% endif %}
+t
     </body>
 
 </html>
