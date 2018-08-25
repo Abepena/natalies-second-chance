@@ -2,7 +2,7 @@
 //smoothScoll function learned from https://www.youtube.com/watch?v=oUSvlrDTLi
 function smoothScroll(target, duration) {
     var target = document.querySelector(target)
-    var targetPosition = target.getBoundingClientRect().top - 70; // top of target div
+    var targetPosition = target.getBoundingClientRect().top - 80; // top of target div
     var startPosition = window.pageYOffset; // postion from the top of the page when the page is loaded
     var startTime = null;
 

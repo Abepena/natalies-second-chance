@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock  %}
+  
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/events.min.css' %}">
+{% endblock  %}
+    
+
+
+{% block page_header_title %}
+    Events
+{% endblock  %}
+    
+{% block main %}
+<div id="upcoming-events" class="section pt-2">
+    <h2 class="title text-center">Upcoming Events</h2>
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+    </div>
+</div>
+<div id="past-events" class="section pt-0">
+    <h2 class="title text-center">Past Events</h2>
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+    </div>
+</div>
+{% endblock  %}
+    

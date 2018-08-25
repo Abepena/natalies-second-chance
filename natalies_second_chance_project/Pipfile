@@ -9,6 +9,7 @@ stripe = "*"
 ipython = "*"
 python-decouple = "*"
 django-livereload-server = "*"
+pillow = "*"
 
 [dev-packages]
 pylint = "*"
