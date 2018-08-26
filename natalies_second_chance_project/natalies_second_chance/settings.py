@@ -39,11 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pets',
+    'dogs',
 
     #Stripe payments for Donations/Adoptions
-    'payments',
-
     # Livereload for development... live reload script in MIDDLEWARE also needed
     'livereload',
 ]
@@ -137,7 +135,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+# MEDIA FILES
+
 #Stripe configurtation and keys
 
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
+
+# Google Maps Api Key
+
+GOOGLE_MAPS_KEY = config('GOOGLE_MAPS_KEY')

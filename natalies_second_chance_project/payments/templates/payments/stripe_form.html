@@ -1,9 +1,0 @@
-<form action="" method="post" class="d-inline btn btn-success btn-round">
-    {% csrf_token %}
-    <script src="https://checkout.stripe.com/checkout.js" 
-    class="stripe-button" 
-    display="none" data-key="{{ key }}" 
-    data-description="Help save a puppy for the price of lunch"
-    data-amount="500" data-locale="auto" data-image="{% static 'img/dog.png' %}">
-    </script>
-</form>
