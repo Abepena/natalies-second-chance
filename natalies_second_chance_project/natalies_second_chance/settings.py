@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pets',
+    'dogs',
 
     #Stripe payments for Donations/Adoptions
     # Livereload for development... live reload script in MIDDLEWARE also needed
