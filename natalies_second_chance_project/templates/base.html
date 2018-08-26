@@ -1,6 +1,6 @@
-<!doctype html> {% load static %}
+<!doctype html> 
+{% load static %}
 <html lang="en">
-
     <head>
         <title>Natalie's Second Chance</title>
         <!-- Required meta tags -->
@@ -18,6 +18,7 @@
 
         <!-- Material Kit CSS -->
         <link href="{% static 'css/material-kit.min.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/base.min.css' %}">
         {% block stylesheets %}
         {% endblock  %}
     </head>
@@ -26,7 +27,7 @@
         <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="100">
             <div class="container">
                 <div class="navbar-translate">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{% url 'home'%}">
                         Natalie's Second Chance
                     </a>
 
@@ -48,23 +49,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#outreach" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="How we're reaching out">
-                                <i class="fas fa-hand-holding-heart fa-2x"></i> Outreach
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{% url 'events' %}" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Upcoming Events">
                                 <i class="fas fa-bullhorn fa-2x"></i> Events
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Contact us">
+                            <a href="{% url 'contact' %}" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Contact us">
                                 <i class="fas fa-tty fa-2x"></i> Contact
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Help a dog out yourself">
-                                <i class="fas fa-heart fa-2x"></i> Donate / Volunteer
+                                    <i class="fas fa-hand-holding-heart fa-2x"></i> Donate / Volunteer
                             </a>
                         </li>
                         <li class="nav-item">         
@@ -83,8 +79,9 @@
         </nav>
 
 
-        <div class="page-header header-filter" data-parallax="true">
+        <div class="page-header header-filter" data-parallax="true">    
             <div class="container">
+                {% block page_header %} 
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto">
                         <div class="brand text-center">
@@ -93,16 +90,19 @@
                                 {% endblock  %}
                             </h1>
                             <!-- Button trigger modal >> modal outside of body -->
+                            {% block header_buttons %}
                             <button type="button" class="btn btn-success btn-round" data-toggle="modal" data-target="#donationModal">
                                 Donate
                             </button>
                             <a href="#" class="btn d-inline btn-round btn-outline header-btn btn-success">Volunteer</a>
+                            {% endblock header_buttons %}      
                         </div>
                     </div>
                 </div>
+                {% endblock page_header %}
             </div>
         </div>
-
+        
         <!-- Donation Modal-->
         <div class="modal fade" id="donationModal" tabindex="-1" role="dialog" aria-labelledby="donationModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -121,11 +121,8 @@
             </div>
         </div>
 
-        <div class="main main-raised">     
-            {% block main %}
-            {% endblock main %}           
-
-        </div>
+        {% block main %}
+        {% endblock main %}           
 
 
 

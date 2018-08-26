@@ -7,7 +7,13 @@ class Dog(models.Model):
     breed = models.CharField(max_length=50)
     age = models.PositiveIntegerField()
     description = models.TextField()
-    image = models.ImageField(upload_to="dog_images/")
 
     def __str__(self):
         return self.name
+
+    def get_page_count(self):
+        pass
+    
+class DogImage(models.Model):
+    dog = models.ForeignKey(Dog, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField()
