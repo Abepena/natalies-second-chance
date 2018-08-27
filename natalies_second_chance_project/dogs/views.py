@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.conf import settings
@@ -86,20 +86,23 @@ class ContactPageView(TemplateView):
 class DogCreateView(LoginRequiredMixin, CreateView):
     model = Dog
     form_class = DogCreateForm
-    template_name = "pets/dog_create.html"
+    template_name = "dogs/dog_create.html"
     # success_url = ...
 
 class DogListView(ListView):
     model = Dog
-    template_name = "pets/dog_list.html"
+    template_name = "dogs/dog_list.html"
     context_object_name = 'dogs'
     paginate_by = 10 
 
+class DogDetailView(DetailView):
+    model = Dog
+    template_name = 
 class DogUpdateView(LoginRequiredMixin, UpdateView):
     model = Dog
-    template_name = "pets/dog_update"
+    template_name = "dogs/dog_update"
 
 class DogDeleteView(LoginRequiredMixin, DeleteView):
     model = Dog
-    template_name = "pets/dog_delete.html"
+    template_name = "dogs/dog_delete.html"
 

@@ -10,6 +10,7 @@ ipython = "*"
 python-decouple = "*"
 django-livereload-server = "*"
 pillow = "*"
+faker = "*"
 
 [dev-packages]
 pylint = "*"

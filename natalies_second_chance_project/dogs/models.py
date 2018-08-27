@@ -7,7 +7,7 @@ class Dog(models.Model):
     breed = models.CharField(max_length=50)
     age = models.PositiveIntegerField()
     description = models.TextField()
-    images = models.ImageField(blank=True, default="../static/img/dog.png")
+    images = models.ImageField(upload_to=f'dog_images/{name}',blank=True, default="default_dog.png")
 
     def __str__(self):
         return self.name

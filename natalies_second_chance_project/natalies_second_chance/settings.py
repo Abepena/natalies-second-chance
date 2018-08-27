@@ -135,7 +135,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-# MEDIA FILES
+# MEDIA FILES'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 #Stripe configurtation and keys
 
@@ -143,5 +146,4 @@ STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
 
 # Google Maps Api Key
-
 GOOGLE_MAPS_KEY = config('GOOGLE_MAPS_KEY')

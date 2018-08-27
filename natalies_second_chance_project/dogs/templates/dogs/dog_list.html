@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Dogs
+{% endblock  %}
+    
+
+{% block stylesheets %}
+<!-- Index CSS -->
+<link rel="stylesheet" href="{% static 'css/dogs.min.css' %}">
+{% endblock  %}
+
+
+{% block page_header_title %}
+   Our Dogs
+{% endblock  %}
+
+{% block header_buttons %}
+    
+{% endblock header_buttons %}
+    
+    
+
+{% block main %}
+<div class="main main-raised">
+    <div class="container">
+        <!--Adoptables-->
+        <div id="adoptables" class="section pt-4">
+            <div class="row justify-content-around">
+                
+                {% for dog  in dogs %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card" style="align-self:stretch">
+                        <div class="card-header adopt-header">
+                            <h3 class="d-inline title">{{ dog.name.capitalize }}</h3>                    
+                            {% if user.is_authenticated %}<a href="{% url 'dogs:update' %}"class="d-inline float-right btn btn-secondary text-dark btn-sm">Edit</a>{% endif %}   
+                        </div>
+                        <img class="card-img-top" src="{{ dog.images.url }}" style="max-height:233px">
+                        <div class="card-body">
+                            <div class="card-title">{{ dog.breed }}: {{ dog.age }} year{{dog.age|pluralize:"s"}} old</div>
+                            <div class="card-subtitle">{{ dog.description|truncatewords:"20" }}</div>                             
+                            <a href="" class="btn-sm btn-success float-right">More info</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                    
+    
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">Remy</h3>
+                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                        <div class="card-body">
+                            <div class="card-title">Breed</div>
+                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
+                                nostrum hic quos, voluptatem quod adipisci.</div>
+                            <a href="" class="btn-sm btn-success float-right">More info</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">Remy</h3>
+                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                        <div class="card-body">
+                            <div class="card-title">Breed</div>
+                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
+                                nostrum hic quos, voluptatem quod adipisci.</div>
+                            <a href="" class="btn-sm btn-success float-right">More info</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">Remy</h3>
+                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                        <div class="card-body">
+                            <div class="card-title">Breed</div>
+                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
+                                nostrum hic quos, voluptatem quod adipisci.</div>
+                            <a href="" class="btn-sm btn-success float-right">More info</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">Remy</h3>
+                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                        <div class="card-body">
+                            <div class="card-title">Breed</div>
+                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
+                                nostrum hic quos, voluptatem quod adipisci.</div>
+                            <a href="" class="btn-sm btn-success float-right">More info</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">Remy</h3>
+                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                        <div class="card-body">
+                            <div class="card-title">Breed</div>
+                            <div class="card-subtitle mb-2 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
+                                nostrum hic quos, voluptatem quod adipisci.</div>
+                            <div class="row">
+                                <div class="col-md-6 mx-auto">
+                                    <a href="" class="btn-sm btn-success float-right">More info</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a href="#" class="btn btn-round mx-auto">All of our pets...</a>
+            </div>
+        </div>  
+    </div>
+</div>
+{% endblock  %}
+    
