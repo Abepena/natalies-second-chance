@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,AAAA,CACR,gBAAgB,CAAE,8BAA8B,CAChD,mBAAmB,CAAE,SAAS,CAC9B,MAAM,CAAC,KAAK,CACZ,UAAU,CAAE,IAAI,CACnB",
+    "mappings": "AAAA,AAAA,YAAY,AAAA,CACR,gBAAgB,CAAE,2BAA2B,CAC7C,mBAAmB,CAAC,OAAQ,CAC5B,MAAM,CAAC,KAAK,CACZ,UAAU,CAAE,IAAI,CACnB",
     "sources": [
         "../scss/dogs.scss"
     ],

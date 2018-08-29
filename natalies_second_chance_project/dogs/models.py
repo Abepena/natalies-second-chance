@@ -29,7 +29,7 @@ class Dog(models.Model):
     description = models.TextField()
     image = models.ImageField(null=True, blank=True, upload_to='dog_images/', default="default_dog.png")
     size = models.CharField(max_length=2, choices=DOG_SIZE_CHOICES)
-    sex = models.CharField(max_length=1, )
+    sex = models.CharField(max_length=1, choices=DOG_SEX_CHOICES )
 
     def get_absolute_url(self):
         return reverse('dogs:detail', kwargs={'pk': self.pk})

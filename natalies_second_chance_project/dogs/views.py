@@ -85,9 +85,7 @@ class ContactPageView(TemplateView):
 
 class DogCreateView(LoginRequiredMixin, CreateView):
     model = Dog
-    fields = '__all__' #optional but can change to a tuple of model fields you want to create a dog with
     form_class = DogCreateForm
-    success_url = reverse_lazy('dogs:detail')
 
 class DogListView(ListView):
     model = Dog
