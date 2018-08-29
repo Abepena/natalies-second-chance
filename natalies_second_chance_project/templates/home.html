@@ -4,167 +4,184 @@
 
 
 {% block title %}
-    Home
-{% endblock  %}
-    
+Natalie's Second Chance
+{% endblock %}
+
 
 {% block stylesheets %}
 <!-- Index CSS -->
 <link rel="stylesheet" href="{% static 'css/index.min.css' %}">
-{% endblock  %}
+{% endblock %}
 
 
 {% block page_header_title %}
-    Give a Dog a Home
-{% endblock  %}
-    
+Give a Dog a Home
+{% endblock %}
+
 
 {% block main %}
-<div class="main main-raised">     
+<div class="main main-raised">
     <div class="container">
         <!--Adoptables-->
         <div id="adoptables" class="section pt-4">
             <h2 class="title mt-0 text-center">Adoptable Dogs</h2>
             <div class="row justify-content-around">
+                
+                {% for dog in dogs %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">{{ dog.name }}</h3>
+                        <img class="card-img-top" src="{{ dog.image.url }}">
+                        <div class="card-body">
+                            <div class="card-title">{{ dog.breed }}</div>
+                            <div class="card-subtitle">{{ dog.description|truncatewords:'20' }}</div>
+                            <a href="{% url 'dogs:detail' pk=dog.pk %}" class="btn-sm btn-success float-right">More info</a>
+                        </div>
+                    </div>
+                </div>
+                    
+                {% endfor %}
+                    
+
                 <div class="col-lg-4 col-md-6">
                     <div class="card">
                         <h3 class="card-header adopt-header title">Remy</h3>
                         <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
                         <div class="card-body">
                             <div class="card-title">Breed</div>
-                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
+                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
+                                eos excepturi id laborum recusandae
                                 nostrum hic quos, voluptatem quod adipisci.</div>
-                                <a href="" class="btn-sm btn-success float-right">More info</a>
-                            </div>
+                            <a href="" class="btn-sm btn-success float-right">More info</a>
                         </div>
                     </div>
-                    
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card">
-                            <h3 class="card-header adopt-header title">Remy</h3>
-                            <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
-                            <div class="card-body">
-                                <div class="card-title">Breed</div>
-                                <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
-                                    nostrum hic quos, voluptatem quod adipisci.</div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">Remy</h3>
+                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                        <div class="card-body">
+                            <div class="card-title">Breed</div>
+                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
+                                eos excepturi id laborum recusandae
+                                nostrum hic quos, voluptatem quod adipisci.</div>
+                            <a href="" class="btn-sm btn-success float-right">More info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">Remy</h3>
+                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                        <div class="card-body">
+                            <div class="card-title">Breed</div>
+                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
+                                eos excepturi id laborum recusandae
+                                nostrum hic quos, voluptatem quod adipisci.</div>
+                            <a href="" class="btn-sm btn-success float-right">More info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">Remy</h3>
+                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                        <div class="card-body">
+                            <div class="card-title">Breed</div>
+                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
+                                eos excepturi id laborum recusandae
+                                nostrum hic quos, voluptatem quod adipisci.</div>
+                            <a href="" class="btn-sm btn-success float-right">More info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3 class="card-header adopt-header title">Remy</h3>
+                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
+                        <div class="card-body">
+                            <div class="card-title">Breed</div>
+                            <div class="card-subtitle mb-2 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Animi eos excepturi id laborum recusandae
+                                nostrum hic quos, voluptatem quod adipisci.</div>
+                            <div class="row">
+                                <div class="col-md-6 mx-auto">
                                     <a href="" class="btn-sm btn-success float-right">More info</a>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card">
-                                <h3 class="card-header adopt-header title">Remy</h3>
-                                <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
-                                <div class="card-body">
-                                    <div class="card-title">Breed</div>
-                                    <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
-                                        nostrum hic quos, voluptatem quod adipisci.</div>
-                                        <a href="" class="btn-sm btn-success float-right">More info</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card">
-                                    <h3 class="card-header adopt-header title">Remy</h3>
-                                    <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
-                                    <div class="card-body">
-                                        <div class="card-title">Breed</div>
-                                        <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
-                                            nostrum hic quos, voluptatem quod adipisci.</div>
-                                            <a href="" class="btn-sm btn-success float-right">More info</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="card">
-                                        <h3 class="card-header adopt-header title">Remy</h3>
-                                        <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
-                                        <div class="card-body">
-                                            <div class="card-title">Breed</div>
-                                            <div class="card-subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
-                                                nostrum hic quos, voluptatem quod adipisci.</div>
-                                                <a href="" class="btn-sm btn-success float-right">More info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="card">
-                                            <h3 class="card-header adopt-header title">Remy</h3>
-                                            <img class="card-img-top" src="{% static 'img/remy.jpg' %}">
-                                            <div class="card-body">
-                                                <div class="card-title">Breed</div>
-                                                <div class="card-subtitle mb-2 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi eos excepturi id laborum recusandae
-                                                    nostrum hic quos, voluptatem quod adipisci.</div>
-                                                    <div class="row">
-                                                        <div class="col-md-6 mx-auto">
-                                                            <a href="" class="btn-sm btn-success float-right">More info</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <a href="#" class="btn btn-round mx-auto">All of our pets...</a>
-                                    </div>
-                                </div>
-                                
-                                <!--Outreach -->
-                                <div id="outreach" class="section pt-0">
-                                    <h2 class="title text-center"> Community Outreach</h2>
-                                    <div class="row">
-                                        <div class="col-lg-6 outreach-item">
-                                            <div class="row">
-                                                <div class="col mx-auto">
-                                                    <img class="img-fluid outreach-img" src="{% static 'img/feeding-dog.jpg' %}" alt="">
-                                                </div>
-                                            </div>
-                                            <h4 class="title mb-2">Community Food Bank</h4>
-                                            <p class="text-lg">
-                                                Natalie's Second Chance offers a food bank for pet owners in the community that need assistance feeding their pets. Dog food
-                                                and sometimes cat food, is available through us at no charge and no requirements for this service.
-                                            </p>
-                                            <p class="text-lg"> We encourage anyone needing assistance in feeding their pets to come pick up food during our open adoption
-                                                hours. Donations of any brand of food (wet or dry) for the food bank are accepted and can be dropped
-                                                off during our open adoption hours. If you have a food donation to give, but are unable to bring it to
-                                                us, please contact us to arrange pick up. For the food bank, we also accept open bags of food and treats.
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-6 outreach-item">
-                                            <div class="row">
-                                                <div class="col mx-auto">
-                                                    <img class=" img-fluid outreach-img" src="{% static 'img/dog-obedience.png' %}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <h4 class="title mb-2">Dog obedience training</h4>
-                                                    <p class="text-lg">
-                                                        If you have a dog that just isn't listening or if you are a new pet owner and don't know what to do, Scott Stone is here
-                            to help you. Scott is now offering obedience training at our shelter. He has had extensive training
-                            and has worked with a variety of dogs. Follow him on facebook to get all of the current details
-                            on classes and services.
-                        </p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-8 mx-auto">
-                        <a href="https://www.facebook.com/IcareK9ObedienceTraining" target="_blank" class="btn btn-info text-lg facebook">
-                            <p>
-                                <i class="fab fa-facebook fa-3x"></i> Reach out on facebook
+            </div>
+            <div class="row">
+                <a href="{% url 'dogs:list' %}" class="btn btn-round mx-auto">All of our pets...</a>
+            </div>
+        </div>
+
+        <!--Outreach -->
+        <div id="outreach" class="section pt-0">
+            <h2 class="title text-center"> Community Outreach</h2>
+            <div class="row">
+                <div class="col-lg-6 outreach-item">
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <img class="img-fluid outreach-img" src="{% static 'img/feeding-dog.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <h4 class="title mb-2">Community Food Bank</h4>
+                    <p class="text-lg">
+                        Natalie's Second Chance offers a food bank for pet owners in the community that need assistance
+                        feeding their pets. Dog food
+                        and sometimes cat food, is available through us at no charge and no requirements for this
+                        service.
+                    </p>
+                    <p class="text-lg"> We encourage anyone needing assistance in feeding their pets to come pick up
+                        food during our open adoption
+                        hours. Donations of any brand of food (wet or dry) for the food bank are accepted and can be
+                        dropped
+                        off during our open adoption hours. If you have a food donation to give, but are unable to
+                        bring it to
+                        us, please contact us to arrange pick up. For the food bank, we also accept open bags of food
+                        and treats.
+                    </p>
+                </div>
+                <div class="col-lg-6 outreach-item">
+                    <div class="row">
+                        <div class="col mx-auto">
+                            <img class=" img-fluid outreach-img" src="{% static 'img/dog-obedience.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="title mb-2">Dog obedience training</h4>
+                            <p class="text-lg">
+                                If you have a dog that just isn't listening or if you are a new pet owner and don't
+                                know what to do, Scott Stone is here
+                                to help you. Scott is now offering obedience training at our shelter. He has had
+                                extensive training
+                                and has worked with a variety of dogs. Follow him on facebook to get all of the current
+                                details
+                                on classes and services.
                             </p>
-                        </a>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <a href="https://www.facebook.com/IcareK9ObedienceTraining" target="_blank" class="btn btn-info text-lg facebook">
+                                <p>
+                                    <i class="fab fa-facebook fa-3x"></i> Reach out on facebook
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
-                
             </div>
         </div>
     </div>
 </div>
-</div>
-{% endblock  %}
-    
+{% endblock %}

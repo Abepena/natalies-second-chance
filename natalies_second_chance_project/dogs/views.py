@@ -3,7 +3,7 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView, D
 from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.conf import settings
-
+from django.urls import reverse_lazy
 
 from .models import Dog
 from .forms import DogCreateForm
@@ -33,8 +33,7 @@ class HomePageView(TemplateView):
                 amount=int(amount), #convert to integer of cents in USD
                 currency='usd',
                 description='Donation',
-                source=token
-                
+                source=token         
             )
             context["amount"] = int(amount) / 100 # back to float for context
             context["payment"] = 'success'
@@ -69,6 +68,7 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['key'] = settings.STRIPE_PUBLISHABLE_KEY
+        context['dogs'] = Dog.objects.all().order_by('-pk')[:6]
         return context
 
 class EventPageView(TemplateView):
@@ -85,9 +85,9 @@ class ContactPageView(TemplateView):
 
 class DogCreateView(LoginRequiredMixin, CreateView):
     model = Dog
+    fields = '__all__' #optional but can change to a tuple of model fields you want to create a dog with
     form_class = DogCreateForm
-    template_name = "dogs/dog_create.html"
-    # success_url = ...
+    success_url = reverse_lazy('dogs:detail')
 
 class DogListView(ListView):
     model = Dog
@@ -97,10 +97,12 @@ class DogListView(ListView):
 
 class DogDetailView(DetailView):
     model = Dog
-    template_name = 
+    template_name = 'dogs/dog_detail.html'
+
 class DogUpdateView(LoginRequiredMixin, UpdateView):
     model = Dog
-    template_name = "dogs/dog_update"
+    fields = '__all__'
+    template_name = "dogs/dog_form.html"
 
 class DogDeleteView(LoginRequiredMixin, DeleteView):
     model = Dog

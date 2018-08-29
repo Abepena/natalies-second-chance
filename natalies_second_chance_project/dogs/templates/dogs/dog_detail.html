@@ -1,41 +1,43 @@
-{% extends "base.html" %} {% load static %} 
-{% block title %} {{ dog_detail.name }} {% endblock %} 
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %} {{ dog.name }} {% endblock %} 
 {% block stylesheets %}
-<link rel="stylesheet" href="{% static 'css/contact.min.css' %}"> 
-{% endblock %} 
+<link rel="stylesheet" href="{% static 'css/dog_detail.min.css' %}" type="text/css">
+
+{% endblock %}
+
+{% block navigation %}
+{% include "includes/non_index_navbar.html" %}
+{% endblock navigation %}
 
 {% block page_header %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="page-header-title">
-                <h1 class="title" id="title">Get in Touch</h1>
-                <p class="text-lg">Whether you are looking for more information about one of our pups, wanting to
-                    volunteer, or thinking about adding a new little member to your family. We are here to help.
-                </p>
-            </div>
-            <div class="card mt-6">
-                <div class="card-header card-header-rose">
-                    <h3 class="card-title">
-                       Give us a Call or Email
-                    </h3>
+<div class="page-header header-filter"> 
+<div class="container pb-0 mb-0">
+    <div class="row align-items-center justify-content-right">
+        <div class="col-md-6 left">
+            <div class="card">
+                <div class="text-center d-flex align-items-center justify-content-center card-header card-header-{%if dog.sex == 'M'%}info{% else %}rose{%endif%}">
+                    <h1 class="title my-0 text-center d-inline" id="title">
+                        {{ dog.name }}              
+                    </h1>
+                    {% if user.is_authenticated %}<a href="{% url 'dogs:update' pk=dog.pk %}"class="ml-3 mt-3 d-inline btn btn-secondary text-dark btn-sm">Edit</a>{% endif %}
                 </div>
+                <img  class="card-img-top img-fluid" style="object-fit:scale-down" src="{{ dog.image.url }}" alt="No image for {{ dog.name }}">
                 <div class="card-body">
-                    <p class="text-lg">
-                        <a href="tel:765-742-2200" class="text-dark">
-                            <i class="fas fa-phone-square mr-2"></i> 765-742-2200</a>
-                    </p>
-                    <p class="text-lg">
-                        <a href="mailto:nataliessecondchance@gmail.com" class="text-dark">
-                            <i class="fas fa-paper-plane mr-2"></i>nataliessecondchance@gmail.com</a>
-                    </p>
+                    <h3 class=" text-dark mt-0">{{ dog.breed }}: {{ dog.age }} year{{ dog.age|pluralize:"s" }} old</h3>
                 </div>
-
             </div>
+        </div>
+        <div class="col-md-6 mx-auto right">
+            <h2 class="title text-center">
+                {{ dog.name }}'s Story
+            </h2>
+                <p class="text-lg">
+                    {{ dog.description }}
+                </p>
+
         </div>
     </div>
 </div>
+</div>
 {% endblock page_header %} 
-
-{% block main %}
-{% endblock %}

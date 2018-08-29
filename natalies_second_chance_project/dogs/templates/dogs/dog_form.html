@@ -1,0 +1,13 @@
+
+{% if not form.instance.pk %}
+Create Dog
+{% else %}
+Update Dog
+{% endif %}
+    
+<form action="" method="POST" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+

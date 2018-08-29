@@ -1,0 +1,51 @@
+<nav class="navbar fixed-top navbar-expand-lg text-dark">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="{% url 'home'%}">
+                    Natalie's Second Chance
+                </a>
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon bg-dark"></span>
+                    <span class="navbar-toggler-icon bg-dark"></span>
+                    <span class="navbar-toggler-icon bg-dark"></span>
+                </button>
+            </div>
+    
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{% url 'dogs:list' %}" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Adopt a new friend">
+                            <i class="fas fa-paw fa-2x"></i> Adoption
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'events' %}" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Upcoming Events">
+                            <i class="fas fa-bullhorn fa-2x"></i> Events
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'contact' %}" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Contact us">
+                            <i class="fas fa-tty fa-2x"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom" data-original-title="Help a dog out yourself">
+                                <i class="fas fa-hand-holding-heart fa-2x"></i> Donate / Volunteer
+                        </a>
+                    </li>
+                    <li class="nav-item">         
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/NataliesSecondChance/"
+                            target="_blank" data-original-title="Reach out on Facebook">
+                            <i class="fab fa-facebook fa-2x"></i>
+                            <div class="ripple-container"></div>
+                        </a>
+                        </a>
+                    </li>
+                    {% block nav-items %}
+                    {% endblock  %}
+                </ul>
+            </div>
+        </div>
+    </nav>
