@@ -41,6 +41,11 @@ body{
             }
         }
     }
+
+    .dog-list-image{
+        height:233px; 
+        object-fit:scale-down
+    }
     
     .text-lg{
         font-size: 1.1rem;
@@ -61,4 +66,5 @@ body{
         }
 
     }
+
 }

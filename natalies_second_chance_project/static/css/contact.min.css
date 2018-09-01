@@ -1,2 +1,2 @@
-html{font-size:calc(.1vw + .85em)}.page-header{-webkit-box-align:normal;-ms-flex-align:normal;align-items:normal;background-image:url("../img/puppies.jpg");background-position:60% 50%}.page-header .container{margin-top:5vh}.page-header .card{margin-top:60px}.page-header .card .card-header{font-size:1rem}
+html{font-size:calc(.1vw + .85em)}.page-header{background-image:url("../img/puppies.jpg");background-position:60% 50%;-webkit-box-align:start;-ms-flex-align:start;align-items:start}.page-header .container{margin-top:10em}.page-header .card{margin-top:60px}.page-header .card .card-header{font-size:1rem}
 /*# sourceMappingURL=contact.min.css.map */

@@ -2,9 +2,10 @@
 {% load static %}
 <html lang="en">
     <head>
-        <title>Natalie's Second Chance</title>
+        <title>{% block title %}{% endblock %}</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-store">
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <!--  Fonts and icons  -->
@@ -24,6 +25,8 @@
     </head>
 
     <body>
+        
+        {% block navigation %}
         <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="100">
             <div class="container">
                 <div class="navbar-translate">
@@ -77,31 +80,36 @@
                 </div>
             </div>
         </nav>
+        {% endblock navigation %}
+            
 
 
-        <div class="page-header header-filter" data-parallax="true">    
-            <div class="container">
-                {% block page_header %} 
-                <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto">
-                        <div class="brand text-center">
-                            <h1 class="title" id="title">
-                                {% block page_header_title %}
-                                {% endblock  %}
-                            </h1>
-                            <!-- Button trigger modal >> modal outside of body -->
-                            {% block header_buttons %}
-                            <button type="button" class="btn btn-success btn-round" data-toggle="modal" data-target="#donationModal">
-                                Donate
-                            </button>
-                            <a href="#" class="btn d-inline btn-round btn-outline header-btn btn-success">Volunteer</a>
-                            {% endblock header_buttons %}      
+  
+                {% block page_header %}
+                <div class="page-header header-filter" data-parallax="true"> 
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto">
+                                <div class="brand text-center">
+                                    <h1 class="title" id="title">
+                                        {% block page_header_title %}
+                                        {% endblock  %}
+                                    </h1>
+                                    <!-- Button trigger modal >> modal outside of body -->
+                                    {% block header_buttons %}
+                                    <button type="button" class="btn btn-success btn-round" data-toggle="modal" data-target="#donationModal">
+                                        Donate
+                                    </button>
+                                    <a href="#" class="btn d-inline btn-round btn-outline header-btn btn-success">Volunteer</a>
+                                    {% endblock header_buttons %}      
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {% endblock page_header %}
-            </div>
-        </div>
+
+
         
         <!-- Donation Modal-->
         <div class="modal fade" id="donationModal" tabindex="-1" role="dialog" aria-labelledby="donationModalLabel" aria-hidden="true">
@@ -126,7 +134,7 @@
 
 
 
-        <footer class="footer footer-default">
+        <footer class="footer mt-5 footer-default">
             <div class="container">
                 <nav class="float-left">
                     <small class="d-inline">

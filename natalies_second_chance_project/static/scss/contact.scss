@@ -1,17 +1,18 @@
 html{font-size: calc(.1vw + .85em);}
 
 .page-header {
-    align-items: normal;
     background-image: url('../img/puppies.jpg');
     background-position: 60% 50%;
+    align-items: start;
     .container{
-        margin-top:5vh;
-
+        margin-top: 10em;
     }
+
     .card {
         margin-top:60px;
         .card-header{
             font-size: 1rem;
         }
     }
+
 }
