@@ -1,5 +1,8 @@
+@import "material-kit/variables/colors";
+
 html{
     font-size: calc(.5em + 1vh);
+    box-sizing: border-box;
 }
 
 body{
@@ -36,8 +39,8 @@ body{
             font-size: 1em;
 
             &.btn-outline{
-                color: white;
-                border-color: white;
+                color: $white;
+                border-color: $white;
             }
         }
     }
@@ -66,5 +69,4 @@ body{
         }
 
     }
-
 }

@@ -1,0 +1,33 @@
+.full-page-form {
+    height : 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+    .inputfile{
+        // hide the input visually but keep it on the browser
+        // this will allow the user to tab to it still and for the input value to be sent to the server on submit
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+
+    }
+    output ul {
+        list-style: none;
+    }
+    .thumb {
+        height: 100px;
+        max-width: 100%;
+        border: 1px solid rgba(0, 0, 0, .5);
+    }
+
+}
+
+// helper classes
+.hidden {
+    display: none;
+}

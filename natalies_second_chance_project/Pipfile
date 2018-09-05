@@ -11,6 +11,8 @@ python-decouple = "*"
 django-livereload-server = "*"
 pillow = "*"
 faker = "*"
+django-widgets-improved = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 pylint = "*"

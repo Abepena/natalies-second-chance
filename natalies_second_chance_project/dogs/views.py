@@ -94,12 +94,13 @@ class DogListView(ListView):
     paginate_by = 10 
 
 class DogDetailView(DetailView):
+    form_class = DogCreateForm
     model = Dog
     template_name = 'dogs/dog_detail.html'
 
 class DogUpdateView(LoginRequiredMixin, UpdateView):
     model = Dog
-    fields = '__all__'
+    form_class = DogCreateForm
     template_name = "dogs/dog_form.html"
 
 class DogDeleteView(LoginRequiredMixin, DeleteView):
