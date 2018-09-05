@@ -1,6 +1,7 @@
 html{font-size: calc(.1vw + .85em);}
 
 .page-header {
+    height: 60vh;
     background-image: url('../img/puppies.jpg');
     background-position: 60% 50%;
     align-items: start;
@@ -15,4 +16,17 @@ html{font-size: calc(.1vw + .85em);}
         }
     }
 
+
+}
+
+.hours, .location {
+    margin-top: 50px;
+}
+
+th, td{
+    text-align: left;
+}
+
+td {
+    padding-left:1em;
 }
