@@ -1,0 +1,51 @@
+@import "material-kit/variables/colors";
+body{
+    padding-top: 70px;
+
+    @media screen and (max-width:768px){
+        padding-top: 90px;
+    }
+}
+
+.full-page-form {
+    height : 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .dog-form {
+        margin-top: 20px; 
+    }
+    .card-header{
+        padding-top: 0;
+        padding-bottom:0;
+        text-align: center;
+    }
+
+    #id_image{
+        // hide the input visually but keep it on the browser
+        // this will allow the user to tab to it still and for the input value to be sent to the server on submit
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+
+    }
+    .image-file ul {
+        padding:0;
+        list-style: none;
+    }
+    .thumb {
+        height: 100px;
+        max-width: 100%;
+        border: 1px solid rgba(0, 0, 0, .5);
+    }
+
+}
+
+// helper classes
+.hidden {
+    display: none;
+}

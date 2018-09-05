@@ -40,11 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dogs',
-
-    #Stripe payments for Donations/Adoptions
+    'crispy_forms', # for custom form rendering
     # Livereload for development... live reload script in MIDDLEWARE also needed
     'livereload',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
