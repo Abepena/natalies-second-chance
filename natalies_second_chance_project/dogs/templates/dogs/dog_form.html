@@ -21,7 +21,7 @@
                         {% if not form.instance.pk %}
                         Create Dog
                         {% else %}
-                        Update Dog
+                        Update {{dog.name}}
                         {% endif %}
                     </h2>
             
@@ -47,16 +47,24 @@
                                 <p>{{ form.description|as_crispy_field }}</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 text-center">
+                                {% if form.instance.pk %}
+                                {{ form.image.label_tag|safe }}<br>
+                                {{ form.image }}
+                                {% else %}
                                 {{form.image}}
                                 {{form.image|add_label_class:'btn btn-danger'}}
+                                {% endif %}
 
                             </div>
-                            <div class="col-md-6">
-                                <output id="imageFile" class="d-flex justify-content-start">
-                                    <img id="preview" class="thumb hidden" src="" alt="image preview">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 mx-auto text-center">
+                                <output id="imageFileOutput" class="image-file">
                                 </output>
+                                <br>
+                                <img id="preview" class="thumb hidden" src="" alt="image preview">
                             </div>
                         </div>
                         <button class="btn form-control btn-success" type="submit">Save Dog</button>

@@ -1,12 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // On page statup log if the page has supports the file API
-    console.log("page ready");
-    if (window.File && window.FileReader && window.FileList && window.Blob) {
-        console.log("The File API is supported in this browser");
-    } else {
-        console.log("The File API is not supported in this browser");
-    }
-    
+    //Style the Image label to be the button
+    const imageLabel = document.querySelector('label[for=id_image]')
+    imageLabel.classList.add('btn','btn-danger')
 
   // Using a standard <input type="file"> element. JavaScript returns the list of selected File objects as a FileList.
   // Handle the selection of files
@@ -21,10 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const preview = document.getElementById('preview');
       const file = document.getElementById('id_image').files[0];
       const reader = new FileReader();
-
+      const output = `<li><strong>New Image: ${file.name}</strong></li>` 
+      
+      // create and insert list into output tag on form
+      document.getElementById('imageFileOutput').innerHTML = `<ul>${output}</ul>`
+    
+      //generate image preview and toggle its visibility if hidden
       reader.addEventListener('load', () => {
           preview.src = reader.result;
-          console.log(preview.classList)
           if (preview.classList.contains('hidden')){
               toggle(preview)
           }

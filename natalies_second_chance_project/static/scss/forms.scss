@@ -1,11 +1,13 @@
+@import "material-kit/variables/colors";
+
 .full-page-form {
     height : 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    
-    .inputfile{
+
+    #id_image{
         // hide the input visually but keep it on the browser
         // this will allow the user to tab to it still and for the input value to be sent to the server on submit
         width: 0.1px;
@@ -16,7 +18,8 @@
         z-index: -1;
 
     }
-    output ul {
+    .image-file ul {
+        padding:0;
         list-style: none;
     }
     .thumb {
