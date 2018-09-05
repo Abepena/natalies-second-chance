@@ -1,74 +1,75 @@
-{% extends "base.html" %}
+{% extends "dogs/dog_list.html" %}
 {% load crispy_forms_tags %}
 {% load form_tags %}
 {% load static %}
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static 'css/forms.min.css' %}">
-<style>
-
-</style>
 {% endblock  %}
+
 
 <!-- Checks if the form already has an instance in the database -->
 {% block body %}
+{% include "includes/detail_navbar.html" %}
 <section class='full-page-form'>
-    <div class="row justify-content-center">
-        <div class="col-md-4 col-10 mx-auto">
-            <div class="card">
-                <div class="card-header card-header-success">
-                    <h2 class="title">
-                        {% if not form.instance.pk %}
-                        Create Dog
-                        {% else %}
-                        Update {{dog.name}}
-                        {% endif %}
-                    </h2>
-            
-                </div>
-                <div class="card-body">
-                    <form action="" method="POST" enctype="multipart/form-data" novalidate>
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col">
-                                <p>{{ form.name|as_crispy_field }}</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6 col-10 mx-auto">
+                <div class="card dog-form">
+                    <div class="card-header card-header-success">
+                        <h3 class="title">
+                            {% if not form.instance.pk %}
+                            Create Dog
+                            {% else %}
+                            Update {{dog.name}}
+                            {% endif %}
+                        </h3>
+                
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="POST" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col">
+                                    <p>{{ form.name|as_crispy_field }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p>{{ form.age|as_crispy_field }}</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>{{ form.age|as_crispy_field }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ form.breed|as_crispy_field }}</p>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <p>{{ form.breed|as_crispy_field }}</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p>{{ form.description|as_crispy_field }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p>{{ form.description|as_crispy_field }}</p>
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 text-center">
+                                    {% if form.instance.pk %}
+                                    {{ form.image.label_tag|safe }}<br>
+                                    {{ form.image }}
+                                    {% else %}
+                                    {{form.image}}
+                                    {{form.image|add_label_class:'btn btn-danger'}}
+                                    {% endif %}
+    
+                                </div>
                             </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-md-10 text-center">
-                                {% if form.instance.pk %}
-                                {{ form.image.label_tag|safe }}<br>
-                                {{ form.image }}
-                                {% else %}
-                                {{form.image}}
-                                {{form.image|add_label_class:'btn btn-danger'}}
-                                {% endif %}
-
+                            <div class="row">
+                                <div class="col-md-8 mx-auto text-center">
+                                    <output id="imageFileOutput" class="image-file">
+                                    </output>
+                                    <br>
+                                    <img id="preview" class="thumb hidden  mb-2" src="" alt="image preview">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8 mx-auto text-center">
-                                <output id="imageFileOutput" class="image-file">
-                                </output>
-                                <br>
-                                <img id="preview" class="thumb hidden" src="" alt="image preview">
-                            </div>
-                        </div>
-                        <button class="btn form-control btn-success" type="submit">Save Dog</button>
-                    </form>
+                            <button class="btn form-control btn-success" type="submit">Save {% if dog.name %} {{dog.name}} {% else %}Dog{% endif %}</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

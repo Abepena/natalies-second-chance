@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const preview = document.getElementById('preview');
       const file = document.getElementById('id_image').files[0];
       const reader = new FileReader();
-      const output = `<li><strong>New Image: ${file.name}</strong></li>` 
+      const output = `<li><strong>Preview: ${file.name}</strong></li>` 
       
       // create and insert list into output tag on form
       document.getElementById('imageFileOutput').innerHTML = `<ul>${output}</ul>`

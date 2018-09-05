@@ -1,4 +1,11 @@
 @import "material-kit/variables/colors";
+body{
+    padding-top: 70px;
+
+    @media screen and (max-width:768px){
+        padding-top: 90px;
+    }
+}
 
 .full-page-form {
     height : 100vh;
@@ -6,6 +13,14 @@
     flex-direction: column;
     justify-content: center;
 
+    .dog-form {
+        margin-top: 20px; 
+    }
+    .card-header{
+        padding-top: 0;
+        padding-bottom:0;
+        text-align: center;
+    }
 
     #id_image{
         // hide the input visually but keep it on the browser

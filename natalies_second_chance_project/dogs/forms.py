@@ -10,7 +10,7 @@ class ImageClearableFileInput(ClearableFileInput):
 
 class DogCreateForm(forms.ModelForm):
     name = forms.CharField()
-    description = forms.CharField(widget=forms.Textarea(attrs={"rows":5}))
+    description = forms.CharField(widget=forms.Textarea(attrs={"rows":7}))
     image = forms.ImageField(
         label=mark_safe('<i class="fas fa-download"></i> Choose Image...'),
         widget=ImageClearableFileInput
