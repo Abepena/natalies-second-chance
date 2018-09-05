@@ -3,9 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageLabel = document.querySelector('label[for=id_image]')
     imageLabel.classList.add('btn','btn-danger')
 
-  // Using a standard <input type="file"> element. JavaScript returns the list of selected File objects as a FileList.
-  // Handle the selection of files
-
   //toggle visibility
   const toggle = elem => {
       elem.classList.toggle('hidden')
