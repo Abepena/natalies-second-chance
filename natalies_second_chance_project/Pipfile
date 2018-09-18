@@ -13,6 +13,7 @@ pillow = "*"
 faker = "*"
 django-widgets-improved = "*"
 django-crispy-forms = "*"
+events = {editable = true, file = "git://github.com/bergantine/django-events.git"}
 
 [dev-packages]
 pylint = "*"
