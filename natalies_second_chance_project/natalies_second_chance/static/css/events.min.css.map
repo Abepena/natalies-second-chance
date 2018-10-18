@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,AAAA,CACR,gBAAgB,CAAE,8BAA8B,CAChD,mBAAmB,CAAE,SAAS,CAC9B,MAAM,CAAC,KAAK,CACZ,UAAU,CAAE,IAAI,CACnB",
+    "sources": [
+        "../scss/events.scss"
+    ],
+    "names": [],
+    "file": "events.min.css"
+}

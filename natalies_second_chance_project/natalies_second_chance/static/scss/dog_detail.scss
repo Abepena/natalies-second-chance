@@ -1,0 +1,36 @@
+// Padding to not overlap navbar
+body{
+    padding-top: 70px;
+}
+.page-header{
+    height:auto;
+    min-height: 100vh;
+    
+    .story{
+        margin:0 0 3rem 0;
+    }
+}
+// Card Styling
+.card{
+    .detail-img{
+        max-height: 340px;
+    }
+    .table-row{
+        border-bottom: 1px solid rgba(0,0,0,.3);
+        &:nth-last-child(1){
+            border-bottom:none;
+        }
+    }
+
+    @media screen and (max-width:767px) {        
+        &:nth-child(1){
+            margin-top:8vh;
+        }
+    }
+
+ 
+}
+
+.text-xl{
+    font-size: calc(.7em + 1.2vh); 
+}

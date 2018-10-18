@@ -1,0 +1,71 @@
+@import "material-kit/variables/colors";
+
+html{
+    font-size: calc(.5em + 1vh);
+}
+
+body{
+    background: url(../img/wavy-dots.png);
+    
+    .navbar{
+        font-size: 1em !important;
+        &.navbar-transparent{
+            padding: 25px;
+        }
+
+        .navbar-brand{
+            position: relative;
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Amatic SC', cursive;
+            top: 0;
+            
+        }
+
+        .fas, .fab {
+            margin-right: 5px
+        }
+    }
+    .page-header{
+    
+        h3 {
+            margin-top:3em;
+            margin-bottom: 1em;
+    
+        }
+    
+        .btn{
+            font-size: 1em;
+
+            &.btn-outline{
+                color: $white;
+                border-color: $white;
+            }
+        }
+    }
+
+    .dog-list-image{
+        height:233px; 
+        object-fit:scale-down
+    }
+    
+    .text-lg{
+        font-size: 1.1rem;
+    }
+
+    .outreach-img{
+        max-height: 360px;
+        margin-left: 50%;
+        transform: translateX(-50%)
+    }
+
+    a {
+        &.btn.facebook{
+            width: 100%;
+            margin-top:2em;
+            margin-left:50%;
+            transform: translateX(-50%)
+        }
+
+    }
+}
