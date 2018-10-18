@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'dogs',
     'crispy_forms', # for custom form rendering
     # Livereload for development... live reload script in MIDDLEWARE also needed
-    'livereload',
+    #'livereload',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     # Live reload script
-    'livereload.middleware.LiveReloadScript',
+    #'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'natalies_second_chance.urls'
