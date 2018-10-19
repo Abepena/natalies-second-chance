@@ -41,5 +41,5 @@ def add_dog(n=5):
 
 if __name__ == "__main__":
     print('populating database')
-    add_dog(10)
+    add_dog(9)
     print('Populating Done')
