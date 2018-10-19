@@ -29,11 +29,11 @@
         {% endblock navigation %} 
         
         {% block page_header %}
-        <!-- Success or error messages for Test User Login-->
         <div class="page-header header-filter" data-parallax="true">
             <div class="container">
+                <!-- Success or error messages for Test User Login-->
                 {% if messages %} {% for message in messages %}
-                <div {% if message.tags %} class="alert alert-dismissable alert-{{ message.tags }}" {% endif %}>
+                <div {% if message.tags %} class="alert alert-dismissable alert-{{ message.tags }} fade show" {% endif %}>
                     {{ message }}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
@@ -57,7 +57,6 @@
                             </div>
 
                             {% if user.username == 'test' %}
-                            <a href="{% url 'logout' %}" class="btn btn-secondary btn-round">Logout 
                             {% else %}
                             <a href="{% url 'test_login' %}" class="btn btn-secondary btn-round">Login as Test User 
                             {% endif %}
