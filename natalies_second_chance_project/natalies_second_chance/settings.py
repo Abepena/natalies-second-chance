@@ -14,6 +14,7 @@ import os
 
 import dj_database_url
 from decouple import config , Csv
+from django.contrib.messages import constants as message_constants
 
 
 
@@ -142,10 +143,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-#Stripe configurtation and keys
-
+#Stripe configuration and keys
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
 
 # Google Maps Api Key
 GOOGLE_MAPS_KEY = config('GOOGLE_MAPS_KEY')
+
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+#custom message tag for rendering error message with danger class
+MESSAGE_TAGS = {message_constants.ERROR: 'danger'}

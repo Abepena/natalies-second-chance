@@ -15,8 +15,13 @@
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-
-
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link main-nav-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+                {% endif %}
                 <li class="nav-item">
                     <a href="#adoptables" class="nav-link main-nav-link" rel="tooltip" data-placement="bottom"
                         data-original-title="Adopt a new friend">
