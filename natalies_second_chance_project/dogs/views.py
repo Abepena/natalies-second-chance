@@ -11,7 +11,7 @@ from .forms import DogCreateForm
 import stripe
 import json  # Not used yet (Remove later if not needed)
 
-stripe_api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 class HomePageView(TemplateView):
@@ -21,7 +21,6 @@ class HomePageView(TemplateView):
         context = self.get_context_data()
         post_data = self.request.POST
         token = self.request.POST.get('stripeToken', '')
-
         # Check for custom donation
         if post_data.get('custom-donation-option'):
             amount = float(post_data.get('custom-donation-option')
