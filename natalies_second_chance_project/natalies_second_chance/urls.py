@@ -18,16 +18,18 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic.base import TemplateView
 from django.urls import path, include
+from django.contrib.auth.views import LogoutView
 
-from dogs.views import  HomePageView, EventPageView, DogCreateView, ContactPageView 
+from . import views
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name="home"),
-    path('events/', TemplateView.as_view(template_name='events.html'), name='events'),
-    path('contact/', ContactPageView.as_view(template_name='contact.html'), name='contact'),
-    path('dogs/', include('dogs.urls')),
+    path('', views.HomePageView.as_view(), name="home"),
     path('admin/', admin.site.urls),
-    
+    path('contact/', views.ContactPageView.as_view(template_name='contact.html'), name='contact'),
+    path('dogs/', include('dogs.urls')),
+    path('events/', views.TemplateView.as_view(template_name='events.html'), name='events'),
+    path('logout/', LogoutView.as_view(), name="logout"),
+    path('test_login/', views.test_user_login, name='test_login'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
