@@ -21,7 +21,7 @@ def add_dog(n=5):
         # Populate all the fields in the Dog model (the image will be the default image)
         name = fake.first_name()
         breed = fake.word().capitalize()
-        age = random.randint(1,10)
+        age = random.randint(0,10)
         description = fake.text(max_nb_chars=400)
         size = random.choice(SIZE_CHOICES)
         sex = random.choice(SEX_CHOICES)

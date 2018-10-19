@@ -18,4 +18,4 @@ class DogCreateForm(forms.ModelForm):
 
     class Meta:
         model = Dog
-        fields = ['name', 'breed', 'age', 'description','image']
+        fields = ['name', 'breed', 'age', 'size', 'sex', 'description', 'image' ]
