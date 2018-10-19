@@ -1,0 +1,12 @@
+{% extends "dogs/dog_detail.html" %}
+
+{% block story %}
+<form method="post">
+    {% csrf_token %}
+    <div class="text-center">
+        <p class="text-lg">Are you sure you want to delete "{{ dog }}"?</p>
+        <input type="submit" class="btn btn-danger" value="Confirm">
+        <a href="{% url 'dogs:detail' pk=dog.pk %}" class="btn btn-secondary text-dark">Cancel</a>
+    </div>
+</form>
+{% endblock story %}

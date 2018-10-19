@@ -18,16 +18,17 @@ Our Dogs
 
 {% block header_buttons %}
 {% if user.is_authenticated %}
-<a href="{% url 'dogs:create' %}" class="btn btn-info btn-round btn-sm">Add Dog</a>
 {% endif %}  
 {% endblock header_buttons %}
-    
-    
+
+
 
 {% block main %}
 <div class="main main-raised">
     <div class="container"> 
-   
+        <div class="text-center">
+            <a href="{% url 'dogs:create' %}" class="btn btn-info btn-round btn-lg my-4"><i class="fas fa-plus fa-lg"></i> Add Dog</a>
+        </div>
         <!--Adoptables-->
         <div id="adoptables" class="section pt-4">
             {% include "includes/display_dogs.html" %}
