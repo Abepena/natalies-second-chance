@@ -13,7 +13,8 @@ class DogCreateForm(forms.ModelForm):
     description = forms.CharField(widget=forms.Textarea(attrs={"rows":7}))
     image = forms.ImageField(
         label=mark_safe('<i class="fas fa-download"></i> Choose Image...'),
-        widget=ImageClearableFileInput
+        widget=ImageClearableFileInput,
+        required=False
     )
 
     class Meta:
