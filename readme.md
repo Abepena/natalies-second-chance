@@ -3,7 +3,7 @@
 ![Early Progress Gif](/gifs/progress1.gif)
 
 - Website rework of the non-profit dog shelter near me
-- Current Website to be reworked can be found [here](http://www.nataliessecondchance.org/)
+- Current status of the website can be found [here](http://www.natalies-second-chance-demo.us/)
 - Created with the intention of donating my time in effort to help out and hone my skills as a devloper
 
 
@@ -18,5 +18,5 @@ Current Progress:
  - Converted multipage layout to single page (for now)
  - Page is completely responsive
  - Created payment app integrating stripe checkout for donations
- - Started a pets app to add/remove their available dogs and display on their homepage/adoptions page dynamically
+ - Allowed superusers/authenticated users to Create/Update/Delete records for dogs in their system.
 
